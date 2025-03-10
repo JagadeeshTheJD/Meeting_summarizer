@@ -64,6 +64,8 @@ This will launch the Streamlit UI for uploading audio files and viewing the tran
 ## 📝 Notes
 - Make sure your `.env` file is correctly set up.
 - If you face authentication issues, ensure your Groq API key is valid.
+
+  Lot of updates comming in this repo,realy excited.
 - Use supported audio formats (`wav`, `mp3`, `m4a`, `ogg`, `flac`).
 
 ---
