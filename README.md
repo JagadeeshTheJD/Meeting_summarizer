@@ -4,7 +4,8 @@ This project provides an **AI-powered meeting transcription and summarization sy
 The system transcribes audio, refines the transcription, and generates structured summaries with key discussions, decisions made, and action items.
 
 ---
-
+▶️ [Watch Demo on YouTube](https://youtu.be/2qxDvqx0rsg)
+---
 ## 🛠 Setup Instructions
 
 ### 1️⃣ Install Dependencies
