@@ -48,7 +48,7 @@ async def process_audio(file: UploadFile = File(...)):
         try:
             transcription_response = client.audio.transcriptions.create(
                 file=(file.filename, await file.read()),
-                model="distil-whisper-large-v3-en",
+                model="whisper-large-v3",
                 response_format="json",
             )
             transcription = transcription_response.text.strip()  # 🔥 FIXED: Use .text instead of ["text"]
@@ -68,7 +68,7 @@ async def process_audio(file: UploadFile = File(...)):
 
         try:
             refined_response = client.chat.completions.create(
-                model="mixtral-8x7b-32768",
+                model="llama-3.1-8b-instant",
                 messages=[{"role": "system", "content": "You are a professional transcription editor."},
                           {"role": "user", "content": refinement_prompt}],
                 max_tokens=4000
@@ -90,7 +90,7 @@ async def process_audio(file: UploadFile = File(...)):
 
         try:
             summary_response = client.chat.completions.create(
-                model="mixtral-8x7b-32768",
+                model="llama-3.3-70b-versatile",
                 messages=[{"role": "system", "content": "You are an AI assistant summarizing a transcript."},
                           {"role": "user", "content": summary_prompt + "\n\n" + refined_transcription}],
                 max_tokens=2000
@@ -110,3 +110,4 @@ async def process_audio(file: UploadFile = File(...)):
     except Exception as e:
         logger.error(f"❌ Error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+
