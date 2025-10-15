@@ -39,6 +39,29 @@ This will launch the Streamlit UI for uploading audio files and viewing the tran
 
 ---
 
+## 🤖 Models Used
+
+The project leverages **Groq AI models** for audio-to-text, refinement, and summarization tasks.
+
+1️⃣ **Whisper-large-v3**  
+   - Developed by OpenAI.  
+   - Performs **speech-to-text transcription** with high accuracy.  
+   - Handles multiple languages and background noise effectively.  
+   - Used for converting raw meeting audio into text.
+
+2️⃣ **Llama-3.1-8b-instant**  
+   - A large language model optimized for **fast inference and lightweight summarization**.  
+   - Used for **transcription refinement** — fixing grammar, incomplete phrases, and coherence while preserving meaning.
+
+3️⃣ **Llama-3.3-70b-versatile**  
+   - A powerful LLM used for **structured summarization**.  
+   - Generates key points, decisions made, and actionable insights.  
+   - Ensures the summary is concise, readable, and logically structured.
+
+These models together ensure the system provides accurate transcriptions and meaningful summaries with minimal human intervention.
+
+---
+
 ## 📂 Project Structure
     📂 project_root/
     │-- apiftest.py        # FastAPI backend for processing audio and summarization
