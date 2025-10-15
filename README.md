@@ -41,43 +41,46 @@ This will launch the Streamlit UI for uploading audio files and viewing the tran
 
 ## 🤖 Models Used
 
-The project leverages **Groq AI models** for audio-to-text, refinement, and summarization tasks.
+The project leverages **Groq AI models** and **OpenAI Whisper** for audio-to-text, refinement, and summarization tasks.
 
-1️⃣ **Whisper-large-v3**  
-   - Developed by OpenAI.  
-   - Performs **speech-to-text transcription** with high accuracy.  
-   - Handles multiple languages and background noise effectively.  
-   - Used for converting raw meeting audio into text.
+### 1️⃣ Whisper (local)
+- Developed by OpenAI.  
+- Performs **speech-to-text transcription** locally for free.  
+- Handles multiple languages and noisy environments effectively.  
+- Used for converting meeting audio into text.
 
-2️⃣ **Llama-3.1-8b-instant**  
-   - A large language model optimized for **fast inference and lightweight summarization**.  
-   - Used for **transcription refinement** - fixing grammar, incomplete phrases, and coherence while preserving meaning.
+### 2️⃣ Llama-3.1-8b-instant
+- A fast, efficient **Groq LLM** optimized for real-time responses.  
+- Used for **refinement** of transcriptions — fixing grammar, missing words, and improving coherence.  
+- Ensures the meaning is preserved while improving readability.
 
-3️⃣ **Llama-3.3-70b-versatile**  
-   - A powerful LLM used for **structured summarization**.  
-   - Generates key points, decisions made, and actionable insights.  
-   - Ensures the summary is concise, readable, and logically structured.
+### 3️⃣ Llama-3.3-70b-versatile
+- A large, powerful **Groq LLM** used for **structured summarization**.  
+- Generates key discussion points, decisions made, and actionable tasks.  
+- Provides concise, organized summaries for better understanding.
 
-These models together ensure the system provides accurate transcriptions and meaningful summaries with minimal human intervention.
+Together, these models ensure accurate transcriptions and meaningful, structured summaries with minimal human intervention.
 
 ---
 
 ## 📂 Project Structure
-    📂 project_root/
+    📂 Meeting_summarizer/
     │-- apiftest.py        # FastAPI backend for processing audio and summarization
     │-- app.py             # Streamlit frontend for user interaction
-    │-- .env               # Environment variables (GROQ_API_KEY)
+    │-- main.py            # Local Whisper + Summarization alternative pipeline
     │-- requirements.txt   # Required dependencies
-    │-- audio.mp3          # Sample audio file
+    │-- .env               # Environment variables (GROQ_API_KEY)
+    │-- README.md          # Project documentation
 
 ---
 
 ## 🎯 Features
-✅ **Audio Transcription** using Whisper-large-v3  
-✅ **Refined Transcription** for improved grammar and coherence  
-✅ **Structured Summarization** using Llama-3.3-70b-versatile  
-✅ **FastAPI Backend** for efficient and modular processing  
-✅ **Streamlit Frontend** for an easy-to-use interface  
+✅ **Automatic Audio Transcription** using Whisper  
+✅ **Refined Transcription** with Llama-3.1-8b-instant  
+✅ **Structured Summarization** via Llama-3.3-70b-versatile  
+✅ **FastAPI Backend** for modular and scalable processing  
+✅ **Streamlit Frontend** for easy interaction and output visualization  
+✅ **Multi-format Support** for various audio files  
 
 ---
 
@@ -86,11 +89,23 @@ These models together ensure the system provides accurate transcriptions and mea
 
 ---
 
-## 📝 Notes
-- Ensure your `.env` file is correctly set up with a valid **Groq API key**.  
-- Always start the backend before launching the Streamlit app.  
-- For best performance, keep audio clips under **5 minutes**.  
+## 🧠 Workflow Overview
+
+1️⃣ User uploads an audio file through Streamlit.  
+2️⃣ FastAPI backend saves and processes the file.  
+3️⃣ Whisper model transcribes the audio into text.  
+4️⃣ Llama-3.1-8b-instant refines the transcription.  
+5️⃣ Llama-3.3-70b-versatile generates a structured summary.  
+6️⃣ Streamlit displays the complete results to the user.
 
 ---
 
-**Lot of updates coming in this repo - really excited! 🎉**
+## ⚙️ Example API Response
+
+```json
+{
+  "message": "✅ Audio processed successfully",
+  "original_transcription": "Good morning everyone, let's start the meeting...",
+  "refined_transcription": "Good morning everyone. Let’s begin today’s meeting...",
+  "structured_summary": "### Summary\n- Discussed project milestones.\n### Key Decisions\n- Extended deadline by 2 weeks.\n### Action Items\n- Task: Update project plan\n  - Assigned to: Raj\n  - Due date: Oct 20"
+}
