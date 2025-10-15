@@ -45,7 +45,6 @@ This will launch the Streamlit UI for uploading audio files and viewing the tran
     │-- app.py             # Streamlit frontend for user interaction
     │-- .env               # Environment variables (GROQ_API_KEY)
     │-- requirements.txt   # Required dependencies
-    │-- README.md          # This file
     │-- audio.mp3          # Sample audio file
 
 ---
