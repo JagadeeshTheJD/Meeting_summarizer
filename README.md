@@ -51,7 +51,7 @@ The project leverages **Groq AI models** for audio-to-text, refinement, and summ
 
 2️⃣ **Llama-3.1-8b-instant**  
    - A large language model optimized for **fast inference and lightweight summarization**.  
-   - Used for **transcription refinement** — fixing grammar, incomplete phrases, and coherence while preserving meaning.
+   - Used for **transcription refinement** - fixing grammar, incomplete phrases, and coherence while preserving meaning.
 
 3️⃣ **Llama-3.3-70b-versatile**  
    - A powerful LLM used for **structured summarization**.  
@@ -93,4 +93,4 @@ These models together ensure the system provides accurate transcriptions and mea
 
 ---
 
-**Lot of updates coming in this repo — really excited! 🎉**
+**Lot of updates coming in this repo - really excited! 🎉**
