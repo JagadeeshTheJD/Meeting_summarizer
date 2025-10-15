@@ -1,4 +1,4 @@
-# AI-Powered Meeting Summarization
+# Meeting Summarizer
 
 This project provides an AI-powered meeting transcription and summarization system using FastAPI for the backend and Streamlit for the frontend. The system transcribes audio, refines the transcription, and generates structured summaries with key discussions, decisions made, and action items.
 
